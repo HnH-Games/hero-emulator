@@ -16,7 +16,7 @@ var Default = &config{
 		ConnMaxIdle:     500,
 		ConnMaxOpen:     300,
 		ConnMaxLifetime: 50,
-		Debug:           false,
+		Debug:           true,
 		SSLMode:         "disable",
 	},
 	Server: Server{
