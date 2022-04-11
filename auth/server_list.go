@@ -15,7 +15,7 @@ var (
 
 func (lsh *ListServersHandler) Handle(s *database.Socket, data []byte) ([]byte, error) {
 
-	lsh.header = "Dragon"
+	lsh.header = "HnH - Hero"
 	return lsh.listServers(s)
 }
 

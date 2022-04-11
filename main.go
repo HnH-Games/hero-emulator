@@ -66,16 +66,19 @@ func startServer() {
 	port := cfg.Server.Port
 
 	listen, err := net.Listen("tcp4", ":"+strconv.Itoa(port))
-	defer listen.Close()
+
+	// defer listen.Close() // Uncoment this one if anything goes wrong!
+
 	if err != nil {
+		defer listen.Close() // If anything goes wrong delete this line and uncoment the one on the top.
 		log.Fatalf("Socket listen port %d failed,%s", port, err)
 		os.Exit(1)
 	}
-	log.Printf("Begin listen port: %d", port)
+	log.Printf("Begin listen on port: %d", port)
 	StartLogging()
 	//connections = make(map[string]net.Conn)
 	//remoteAddrs = make(map[string]int)
-	//dungeon.ExploreTheWorld()
+	// dungeon.ExploreTheWorld()
 	for {
 		conn, err := listen.Accept()
 		if err != nil {
