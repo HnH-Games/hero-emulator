@@ -1,3 +1,7 @@
+/*
+A big thanks to DRAGON-LEGEND the biggest inspiration for all off us!
+*/
+
 package main
 
 import (
