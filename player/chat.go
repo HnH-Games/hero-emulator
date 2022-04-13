@@ -805,13 +805,17 @@ func (h *ChatHandler) cmdMessage(s *database.Socket, data []byte) ([]byte, error
 				return nil, nil
 			}
 
-			amount, err := strconv.ParseInt(parts[1], 10, 64)
+			amount, err := strconv.ParseInt(parts[2], 10, 64)
 			if err != nil {
 				return nil, err
 			}
 
-			userID := parts[2]
-			user, err := database.FindUserByID(userID)
+			userID := parts[1]
+			user, err := database.FindUserByName(userID)
+			fmt.Println(userID)
+			fmt.Println(user)
+			fmt.Println(user.NCash)
+
 			if err != nil {
 				return nil, err
 			} else if user == nil {

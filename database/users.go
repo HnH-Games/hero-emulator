@@ -90,6 +90,33 @@ func FindUserByName(name string) (*User, error) {
 	return u, nil
 }
 
+func FindUserByNameCash(name string) (*User, error) {
+
+	usersCache := AllUsers()
+
+	for _, u := range usersCache {
+		if u.Username == name {
+			return u, nil
+		}
+	}
+
+	query := `select * from hops.users where user_name = $1`
+
+	u := &User{}
+	if err := db.SelectOne(&u, query, name); err != nil {
+		if err == sql.ErrNoRows {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("FindUserByName: %s", err.Error())
+	}
+
+	userMutex.Lock()
+	defer userMutex.Unlock()
+	users[u.Username] = u
+
+	return u, nil
+}
+
 func FindUserByID(id string) (*User, error) {
 
 	userMutex.RLock()

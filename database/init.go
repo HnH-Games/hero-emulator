@@ -18,10 +18,10 @@ import (
 var (
 	DROP_LIFETIME     = time.Duration(30) * time.Second
 	FREEDROP_LIFETIME = time.Duration(3) * time.Second
-	DROP_RATE         = utils.ParseFloat("0.1")
-	DEFAULT_DROP_RATE = utils.ParseFloat("0.1")
-	EXP_RATE          = utils.ParseFloat("0.1")
-	DEFAULT_EXP_RATE  = utils.ParseFloat("0.1")
+	DROP_RATE         = utils.ParseFloat("10.0")
+	DEFAULT_DROP_RATE = utils.ParseFloat("10.0")
+	EXP_RATE          = utils.ParseFloat("500.0")
+	DEFAULT_EXP_RATE  = utils.ParseFloat("500.0")
 )
 
 var (
