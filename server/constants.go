@@ -14,6 +14,7 @@ const (
 	GAL_USER
 	GM_USER
 	HGM_USER
+	VIP_USER
 )
 
 var (

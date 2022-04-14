@@ -812,9 +812,6 @@ func (h *ChatHandler) cmdMessage(s *database.Socket, data []byte) ([]byte, error
 
 			userID := parts[1]
 			user, err := database.FindUserByName(userID)
-			fmt.Println(userID)
-			fmt.Println(user)
-			fmt.Println(user.NCash)
 
 			if err != nil {
 				return nil, err
